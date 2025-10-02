@@ -4,6 +4,8 @@ module ShortestPathFinder {
     requires java.sql;
     exports Main;
     exports Rider;
+
+
     // Export the required packages
     exports User;
     exports User.Gui;
