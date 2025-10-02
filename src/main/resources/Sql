@@ -1,0 +1,29 @@
+CREATE DATABASE UserRegistration;
+
+USE UserRegistration;
+
+CREATE TABLE Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+select * from Users;
+CREATE TABLE Riders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,  -- Valid phone number
+    vehicle_info VARCHAR(255) NOT NULL
+);
+select * from Riders;
+CREATE TABLE Billing (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    FOREIGN KEY (username) REFERENCES Users(username)
+);
+select * from Billing;

@@ -21,6 +21,23 @@ public class UserDB {
         }
         return false;
     }
+    public static String getUsernameByPhoneNumber(String phoneNumber) {
+        String username = null;
+        try (Connection conn = DBUtil.getConnection()) {
+            String query = "SELECT username FROM Users WHERE phone_number = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, phoneNumber);
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    username = rs.getString("username");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return username;
+    }
+
 
     public static boolean registerUser(String username, String password, String phone) {
         String query = "INSERT INTO Users (username, password, phone_number) VALUES (?, ?, ?)";
@@ -58,4 +75,21 @@ public class UserDB {
         }
         return false;
     }
+    public static String getUserPhoneNumber(String username) {
+        String phoneNumber = null;
+        try (Connection conn = DBUtil.getConnection()) {
+            String query = "SELECT phone_number FROM Users WHERE username = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, username);
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    phoneNumber = rs.getString("phone_number");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return phoneNumber;
+    }
 }
+
