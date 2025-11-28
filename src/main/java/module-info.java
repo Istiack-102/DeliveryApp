@@ -4,7 +4,11 @@ module ShortestPathFinder {
     requires java.sql;
     exports Main;
     exports Rider;
-
+    requires javafx.web;
+    requires java.net.http;
+    requires org.json;
+    requires javafx.graphics;
+    requires javafx.base;
 
     // Export the required packages
     exports User;

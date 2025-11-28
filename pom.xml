@@ -15,6 +15,7 @@
     </properties>
 
     <dependencies>
+
         <!-- JavaFX dependencies -->
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -51,6 +52,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.dlsc</groupId>
             <artifactId>GMapsFX</artifactId>
@@ -63,10 +65,26 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- ADDED: JSON library for parsing Google API response -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20230618</version>
+        </dependency>
+
+        <!-- ADDED: JavaFX WebView module -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>21</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+
             <!-- Compiler plugin for Java 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -87,12 +105,12 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <!-- Replace it with your actual main class path -->
                             <mainClass>Main.MainApp</mainClass>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 </project>
